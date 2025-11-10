@@ -89,5 +89,4 @@
     localStorage.setItem('theme', newTheme);
   });
 
-
 })();
