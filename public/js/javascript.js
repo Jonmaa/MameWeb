@@ -89,4 +89,48 @@
     localStorage.setItem('theme', newTheme);
   });
 
+    // -----------------------------
+    // 🌐 Gestión de idiomas (i18n)
+    // -----------------------------
+
+    const langSelect = document.getElementById('langSelect');
+    const defaultLang = localStorage.getItem('lang') || navigator.language.slice(0, 2) || 'es';
+    let translations = {};
+
+    async function loadLanguage(lang) {
+      try {
+        const response = await fetch(`lang/${lang}.json`);
+        if (!response.ok) throw new Error(`Error al cargar ${lang}.json`);
+        translations = await response.json();
+        applyTranslations();
+        localStorage.setItem('lang', lang);
+        if (langSelect) langSelect.value = lang;
+      } catch (error) {
+        console.error('Error cargando idioma:', error);
+      }
+    }
+
+    function applyTranslations() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[key]) {
+          el.innerHTML = translations[key];
+        }
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[key]) el.placeholder = translations[key];
+      });
+    }
+
+    if (langSelect) {
+      langSelect.addEventListener('change', e => {
+        loadLanguage(e.target.value);
+      });
+    }
+
+
+    // Carga inicial del idioma
+    loadLanguage(defaultLang);
+
 })();

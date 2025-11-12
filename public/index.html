@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Diseño Web PROTOTIPO INICIAL</title>
+  <title>MameWeb</title>
   <meta name="description" content="Ofrezco diseño y desarrollo de páginas web modernas, rápidas y adaptadas a dispositivos móviles. Paquetes para autónomos, pequeñas empresas y tiendas online." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
   <link rel="stylesheet" href="css/stylesheet.css">
@@ -14,50 +14,58 @@
       <div class="brand" aria-label="Marca">
         <div class="logo" aria-hidden="true">MW</div>
         <div>
-          <h1>MameWeb — Creación de Páginas</h1>
-          <p>Diseño web & desarrollo para marcas y emprendedores</p>
+          <h1 data-i18n="brand_title">MameWeb — Creación de Páginas</h1>
+          <p data-i18n="brand_subtitle">Diseño web & desarrollo para marcas y emprendedores</p>
         </div>
       </div>
 
-      <nav aria-label="Navegación principal">
-        <button id="themeToggle" class="btn secondary" aria-label="Cambiar tema">🌗</button>
-        <a href="#servicios">Servicios</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#precios">Precios</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contacto" class="pill">Contacto</a>
-      </nav>
+      <div class="nav-wrapper">
+        <nav aria-label="Navegación principal">
+          <button id="themeToggle" class="btn secondary" aria-label="Cambiar tema">🌗</button>
+          <a href="#servicios" data-i18n="nav_services">Servicios</a>
+          <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+          <a href="#precios" data-i18n="nav_prices">Precios</a>
+          <a href="#faq" data-i18n="nav_faq">FAQ</a>
+          <a href="#contacto"  data-i18n="nav_contact">Contacto</a>
+        </nav>
+        <select id="langSelect" aria-label="Cambiar idioma">
+          <option value="es">🇪🇸 Español</option>
+          <option value="en">🇬🇧 English</option>
+        </select>
+      </div>
+
+
     </header>
 
     <!-- Hero -->
     <section class="hero" aria-labelledby="hero-title">
       <!-- Servicio destacado -->
       <div class="hero-left" >
-        <span class="kicker">Servicio destacado</span>
-        <h2 id="hero-title">Construyo páginas web profesionales que venden y convierten</h2>
-        <p class="lead">Diseños modernos, velocidad optimizada, SEO básico y soporte post-lanzamiento. Trabajo con autónomos, pymes y tiendas online.</p>
+        <span class="kicker" data-i18n="hero_kicker">Servicio destacado</span>
+        <h2 id="hero-title" data-i18n="hero_title">Construyo páginas web profesionales que venden y convierten</h2>
+        <p class="lead" data-i18n="hero_lead">Diseños modernos, velocidad optimizada, SEO básico y soporte post-lanzamiento. Trabajo con autónomos, pymes y tiendas online.</p>
 
         <div class="cta-row">
-          <button class="btn" id="btn-contact">Solicitar presupuesto</button>
-          <button class="btn secondary" id="btn-portfolio">Ver portfolio</button>
+          <button class="btn" id="btn-contact" data-i18n="hero_btn_contact">Solicitar presupuesto</button>
+          <button class="btn secondary" id="btn-portfolio" data-i18n="hero_btn_portfolio">Ver portfolio</button>
         </div>
 
         <div class="feature-list" aria-hidden="false">
-          <div class="feature">Diseño responsive</div>
-          <div class="feature">SEO & performance</div>
-          <div class="feature">Integración con CMS</div>
-          <div class="feature">Ecommerce (Woo/Shopify)</div>
+          <div class="feature" data-i18n="hero_feature_1">Diseño responsive</div>
+          <div class="feature" data-i18n="hero_feature_2">SEO & performance</div>
+          <div class="feature" data-i18n="hero_feature_3">Integración con CMS</div>
+          <div class="feature" data-i18n="hero_feature_4">Ecommerce (Woo/Shopify)</div>
         </div>
       </div>
 
       <!-- Datos extras -->
       <aside class="hero-right" aria-label="Resumen de servicio">
-        <div class="stat"><div><small class="muted">Proyectos entregados</small><div><strong>5+</strong></div></div><div class="muted">Desde 2025</div></div>
-        <div class="stat"><div><small class="muted">Tiempo típico</small><div><strong>3-30 días</strong></div></div><div class="muted">Según paquete</div></div>
-        <div class="stat"><div><small class="muted">Soporte</small><div><strong>3 meses incluidos</strong></div></div><div class="muted">Opciones extendidas</div></div>
+        <div class="stat"><div><small class="muted" data-i18n="hero_stat_projects">Proyectos entregados</small><div><strong data-i18n="hero_stat_projects_count">5+</strong></div></div><div class="muted" data-i18n="hero_stat_from">Desde 2025</div></div>
+        <div class="stat"><div><small class="muted" data-i18n="hero_stat_time">Tiempo típico</small><div><strong data-i18n="hero_stat_duration_unit">3-30 días</strong></div></div><div class="muted" data-i18n="hero_stat_duration">Según paquete</div></div>
+        <div class="stat"><div><small class="muted" data-i18n="hero_stat_support">Soporte</small><div><strong data-i18n="hero_stat_support_duration">3 meses incluidos</strong></div></div><div class="muted" data-i18n="hero_stat_support_desc">Opciones extendidas</div></div>
         <div style="margin-top:auto;color:var(--muted);font-size:13px">
-          <strong>¿Listo para empezar?</strong>
-          <p class="muted" style="margin:6px 0 0 0">Haz clic en "Solicitar presupuesto" o rellena el formulario de contacto abajo.</p>
+          <strong data-i18n="hero_stat_ready">¿Listo para empezar?</strong>
+          <p class="muted" style="margin:6px 0 0 0" data-i18n="hero_stat_contact">Haz clic en "Solicitar presupuesto" o rellena el formulario de contacto abajo.</p>
         </div>
       </aside>
     </section>
@@ -66,24 +74,24 @@
     <section id="servicios" aria-labelledby="servicios-title">
       <div class="section-head">
         <div>
-          <h2 id="servicios-title" style="margin:0">Servicios</h2>
-          <p class="muted" style="margin:6px 0 0 0">Paquetes y tareas concretas que ofrezco</p>
+          <h2 id="servicios-title" style="margin:0" data-i18n="services_title">Servicios</h2>
+          <p class="muted" style="margin:6px 0 0 0" data-i18n="services_subtitle">Paquetes y tareas concretas que ofrezco</p>
         </div>
-        <div class="muted">¿Necesitas algo fuera de los paquetes? Lo adaptamos.</div>
+        <div class="muted" data-i18n="services_extra">¿Necesitas algo fuera de los paquetes? Lo adaptamos.</div>
       </div>
 
       <div class="cards" role="list">
         <article class="card" role="listitem">
-          <h3>Landing & Web corporativa</h3>
-          <p>Diseños orientados a conversión, secciones claras, formulario de contacto y carga rápida.</p>
+          <h3 data-i18n="service_1_title">Landing & Web corporativa</h3>
+          <p data-i18n="service_1_text">Diseños orientados a conversión, secciones claras, formulario de contacto y carga rápida.</p>
         </article>
         <article class="card" role="listitem">
-          <h3>Tienda online</h3>
-          <p>Instalación y personalización de WooCommerce o Shopify. Métodos de pago y optimización de fichas de producto.</p>
+          <h3 data-i18n="service_2_title">Tienda online</h3>
+          <p data-i18n="service_2_text">Instalación y personalización de WooCommerce o Shopify. Métodos de pago y optimización de fichas de producto.</p>
         </article>
         <article class="card" role="listitem">
-          <h3>Mantenimiento & soporte</h3>
-          <p>Backups, actualizaciones, correcciones y mejoras continuas. Paquetes mensuales disponibles.</p>
+          <h3 data-i18n="service_3_title">Mantenimiento & soporte</h3>
+          <p data-i18n="service_3_text">Backups, actualizaciones, correcciones y mejoras continuas. Paquetes mensuales disponibles.</p>
         </article>
       </div>
     </section>
@@ -92,21 +100,21 @@
     <section id="portfolio" aria-labelledby="portfolio-title">
       <div class="section-head">
         <div>
-          <h2 id="portfolio-title" style="margin:0">Portfolio</h2>
-          <p class="muted" style="margin:6px 0 0 0">Algunos trabajos (muestra)</p>
+          <h2 id="portfolio-title" style="margin:0" data-i18n="portfolio_title">Portfolio</h2>
+          <p class="muted" style="margin:6px 0 0 0" data-i18n="portfolio_subtitle">Algunos trabajos (muestra)</p>
         </div>
-        <div class="muted">Más a petición</div>
+        <div class="muted" data-i18n="portfolio_extra">Más a petición</div>
       </div>
 
       <div class="portfolio-grid" aria-live="polite">
-        <div class="portfolio-item" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=0b7d4a2d9c4d7a5f3b48b7b350a2f5b1')">
-          <div class="caption">Tienda de moda — Diseño & ecommerce</div>
+        <div class="portfolio-item" style="background-image:url('images/portfolio1.png')">
+          <div class="caption" data-i18n="portfolio_1_caption">Tienda de moda — Diseño & ecommerce</div>
         </div>
-        <div class="portfolio-item" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=7e9d9f5a3b3c9c2ad3ceb7f3a0b9f1a7')">
-          <div class="caption">Consultoría — Web corporativa</div>
+        <div class="portfolio-item" style="background-image:url('images/portfolio2.png')">
+          <div class="caption" data-i18n="portfolio_2_caption">Consultoría — Web corporativa</div>
         </div>
-        <div class="portfolio-item" style="background-image:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=b6b3d1f7a0ee1c8d4d2a5b0d3f9f6a4a')">
-          <div class="caption">Startup — Landing para captación</div>
+        <div class="portfolio-item" style="background-image:url('images/portfolio3.png')">
+          <div class="caption" data-i18n="portfolio_3_caption">Startup — Landing para captación</div>
         </div>
       </div>
     </section>
@@ -115,31 +123,31 @@
     <section id="precios" aria-labelledby="precios-title">
       <div class="section-head">
         <div>
-          <h2 id="precios-title" style="margin:0">Precios</h2>
-          <p class="muted" style="margin:6px 0 0 0">Tarifas orientativas — presupuesto final tras briefing</p>
+          <h2 id="precios-title" style="margin:0" data-i18n="prices_title">Precios</h2>
+          <p class="muted" style="margin:6px 0 0 0" data-i18n="prices_subtitle">Tarifas orientativas — presupuesto final tras briefing</p>
         </div>
-        <div class="muted">Pago seguro y opciones a medida</div>
+        <div class="muted" data-i18n="prices_extra">Pago seguro y opciones a medida</div>
       </div>
 
       <div class="pricing-grid">
         <div class="price">
-          <h4>Starter</h4>
-          <div class="amount">Desde €500</div>
-          <div class="muted">Landing page o web básica</div>
-          <p style="margin-top:12px"><strong>Incluye:</strong> Diseño simple, 1-3 páginas, formulario de contacto, CTA, optimización básica.</p>
+          <h4 data-i18n="price_1_title">Starter</h4>
+          <div class="amount" data-i18n="price_1_amount">Desde €500</div>
+          <div class="muted" data-i18n="price_1_desc">Landing page o web básica</div>
+          <p style="margin-top:12px" data-i18n="price_1_details"><strong>Incluye:</strong> Diseño simple, 1-3 páginas, formulario de contacto, CTA, optimización básica.</p>
         </div>
         <div class="price">
-          <h4>Pro</h4>
-          <div class="amount">Desde €1000</div>
-          <div class="muted">Web corporativa</div>
-          <p style="margin-top:12px"><strong>Incluye:</strong> 4-8 páginas (inicio, servicios, sobre nosotros, contacto), diseño personalizado, responsive.</p>
+          <h4 data-i18n="price_2_title">Pro</h4>
+          <div class="amount" data-i18n="price_2_amount">Desde €1000</div>
+          <div class="muted" data-i18n="price_2_desc">Web corporativa</div>
+          <p style="margin-top:12px" data-i18n="price_2_details"><strong>Incluye:</strong> 4-8 páginas (inicio, servicios, sobre nosotros, contacto), diseño personalizado, responsive.</p>
         </div>
         <div class="price">
-          <h4>Ecommerce</h4>
+          <h4 data-i18n="price_3_title">Ecommerce</h4>
           <!-- Menos de 50 prod. (2200 - 3600), Más de 50 prod. (3600 - 8000) -->
-          <div class="amount">Desde €2,200</div>
-          <div class="muted">Tienda online</div>
-          <p style="margin-top:12px"><strong>Incluye:</strong> Catálogo, pasarela de pago, carrito de compras y envíos.</p>
+          <div class="amount" data-i18n="price_3_amount">Desde €2,200</div>
+          <div class="muted" data-i18n="price_3_desc">Tienda online</div>
+          <p style="margin-top:12px" data-i18n="price_3_details"><strong>Incluye:</strong> Catálogo, pasarela de pago, carrito de compras y envíos.</p>
         </div>
       </div>
     </section>
@@ -148,10 +156,10 @@
     <section aria-labelledby="testi-title">
       <div class="section-head">
         <div>
-          <h2 id="testi-title" style="margin:0">Comentarios</h2>
-          <p class="muted" style="margin:6px 0 0 0">Lo que dicen mis clientes</p>
+          <h2 id="testi-title" style="margin:0" data-i18n="testimonials_title">Comentarios</h2>
+          <p class="muted" style="margin:6px 0 0 0" data-i18n="testimonials_subtitle">Lo que dicen mis clientes</p>
         </div>
-        <div class="muted">Opiniones reales</div>
+        <div class="muted" data-i18n="testimonials_extra">Opiniones reales</div>
       </div>
 
       <div class="testimonials">
@@ -174,30 +182,30 @@
     <section id="faq" aria-labelledby="faq-title">
       <div class="section-head">
         <div>
-          <h2 id="faq-title" style="margin:0">Preguntas Frecuentes (FAQ)</h2>
-          <p class="muted" style="margin:6px 0 0 0">Resuelvo dudas comunes sobre diseño web</p>
+          <h2 id="faq-title" style="margin:0" data-i18n="faq_title">Preguntas Frecuentes (FAQ)</h2>
+          <p class="muted" style="margin:6px 0 0 0" data-i18n="faq_subtitle">Resuelvo dudas comunes sobre diseño web</p>
         </div>
       </div>
 
       <div class="faq-list">
         <details>
-          <summary><strong>¿Qué significa que una web sea "responsive"?</strong></summary>
-          <p>Significa que la página se adapta automáticamente a cualquier dispositivo (móvil, tablet o PC) para ofrecer una buena experiencia de usuario sin importar el tamaño de pantalla.</p>
+          <summary data-i18n="faq_1_q"><strong>¿Qué significa que una web sea "responsive"?</strong></summary>
+          <p data-i18n="faq_1_a">Significa que la página se adapta automáticamente a cualquier dispositivo (móvil, tablet o PC) para ofrecer una buena experiencia de usuario sin importar el tamaño de pantalla.</p>
         </details>
 
         <details>
-          <summary><strong>¿Qué es el SEO básico que incluyes?</strong></summary>
-          <p>El SEO básico mejora la visibilidad en Google. Incluye etiquetas correctas (títulos, descripciones, encabezados), estructura limpia, carga rápida y datos estructurados (JSON-LD) para que Google entienda tu web.</p>
+          <summary data-i18n="faq_2_q"><strong>¿Qué es el SEO básico que incluyes?</strong></summary>
+          <p data-i18n="faq_2_a">El SEO básico mejora la visibilidad en Google. Incluye etiquetas correctas (títulos, descripciones, encabezados), estructura limpia, carga rápida y datos estructurados (JSON-LD) para que Google entienda tu web.</p>
         </details>
 
         <details>
-          <summary><strong>¿Qué es un CMS y por qué lo usas?</strong></summary>
-          <p>Un CMS (Sistema de Gestión de Contenidos) como WordPress o Shopify permite editar textos, imágenes y productos sin saber programar. Facilita mantener la web actualizada.</p>
+          <summary data-i18n="faq_3_q"><strong>¿Qué es un CMS y por qué lo usas?</strong></summary>
+          <p data-i18n="faq_3_a">Un CMS (Sistema de Gestión de Contenidos) como WordPress o Shopify permite editar textos, imágenes y productos sin saber programar. Facilita mantener la web actualizada.</p>
         </details>
 
         <details>
-          <summary><strong>¿Puedo pedir una web a medida sin plantilla?</strong></summary>
-          <p>Sí. Ofrezco diseño a medida desde cero según tus necesidades, identidad visual y objetivos de negocio.</p>
+          <summary data-i18n="faq_4_q"><strong>¿Puedo pedir una web a medida sin plantilla?</strong></summary>
+          <p data-i18n="faq_4_a">Sí. Ofrezco diseño a medida desde cero según tus necesidades, identidad visual y objetivos de negocio.</p>
         </details>
       </div>
     </section>
@@ -207,54 +215,54 @@
     <section id="contacto" aria-labelledby="contacto-title">
       <div class="section-head">
         <div>
-          <h2 id="contacto-title" style="margin:0">Contacto</h2>
-          <p class="muted" style="margin:6px 0 0 0">Cuéntame tu proyecto — responderé en 24-48h</p>
+          <h2 id="contacto-title" style="margin:0" data-i18n="contact_title">Contacto</h2>
+          <p class="muted" style="margin:6px 0 0 0" data-i18n="contact_subtitle">Cuéntame tu proyecto — responderé en 24-48h</p>
         </div>
-        <div class="muted">También disponible por email y WhatsApp</div>
+        <div class="muted" data-i18n="contact_extra">También disponible por email y WhatsApp</div>
       </div>
 
       <div style="display:grid;grid-template-columns:1fr 360px;gap:12px;">
         <div>
           <form class="contact" id="contactForm" novalidate>
             <label>
-              Nombre
-              <input type="text" name="name" id="name" placeholder="Tu nombre" required>
+              <span data-i18n="contact_form_name">Nombre</span>
+              <input type="text" name="name" id="name" placeholder="Tu nombre" data-i18n-placeholder="contact_form_placeholder_name" required autocomplete="name">
             </label>
             <div class="form-row">
               <label>
-                Email
-                <input type="email" name="email" id="email" placeholder="correo@ejemplo.com" required>
+                <span data-i18n="contact_form_email">Email</span>
+                <input type="email" name="email" id="email" placeholder="correo@ejemplo.com" data-i18n-placeholder="contact_form_placeholder_email" required autocomplete="email">
               </label>
               <label>
-                Teléfono (opcional)
-                <input type="text" name="phone" id="phone" placeholder="+34 6XX XXX XXX">
+                <span data-i18n="contact_form_phone">Teléfono (opcional)</span>
+                <input type="text" name="phone" id="phone" placeholder="+34 6XX XXX XXX" data-i18n-placeholder="contact_form_placeholder_phone" autocomplete="tel">
               </label>
             </div>
             <label>
-              Mensaje / Descripción del proyecto
-              <textarea name="message" id="message" rows="5" placeholder="Qué necesitas, presupuesto aproximado, plazo..." required></textarea>
+              <span data-i18n="contact_form_message">Mensaje / Descripción del proyecto</span>
+              <textarea name="message" id="message" rows="5" placeholder="Qué necesitas, presupuesto aproximado, plazo..." data-i18n-placeholder="contact_form_placeholder_message" required autocomplete="off"></textarea>
             </label>
             <div style="display:flex;gap:8px;align-items:center">
-              <button class="btn" type="submit">Enviar mensaje</button>
-              <button type="button" class="btn secondary" id="btn-mail">Enviar por email</button>
+              <button class="btn" type="submit" data-i18n="contact_form_send">Enviar mensaje</button>
+              <button type="button" class="btn secondary" id="btn-mail" data-i18n="contact_form_sendmail">Enviar por email</button>
               <div id="formStatus" class="muted" aria-live="polite" style="margin-left:8px"></div>
             </div>
           </form>
-          <p class="note" style="margin-top:8px">Al enviar tu mensaje aceptas que use los datos para responder. No comparto datos con terceros.</p>
+          <p class="note" style="margin-top:8px" data-i18n="contact_disclaimer">Al enviar tu mensaje aceptas que use los datos para responder. No comparto datos con terceros.</p>
         </div>
 
         <aside style="padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)">
-          <h3 style="margin-top:0">Contacto directo</h3>
-          <p class="muted">Email: <a href="mailto:tucorreo@ejemplo.com" id="mailLink">jonmarcos1@gmail.com</a></p>
-          <p class="muted">WhatsApp: <a href="https://wa.me/34638574402" target="_blank" rel="noreferrer">+34 638 574 402</a></p>
-          <p class="muted" style="margin-top:12px">Disponibilidad: Lunes–Domingo, 9:00–18:00</p>
+          <h3 style="margin-top:0" data-i18n="contact_aside_title">Contacto directo</h3>
+          <p class="muted"> <span data-i18n="contact_aside_email">Email:</span> <a href="mailto:tucorreo@ejemplo.com" id="mailLink" data-i18n="contact_aside_mail">jonmarcos1@gmail.com</a></p>
+          <p class="muted"> <span data-i18n="contact_aside_whatsapp">WhatsApp:</span> <a href="https://wa.me/34638574402" target="_blank" rel="noreferrer" data-i18n="contact_aside_whatsapplink">+34 638 574 402</a></p>
+          <p class="muted" style="margin-top:12px"> <span data-i18n="contact_aside_availability">Disponibilidad: Lunes–Domingo, 9:00–18:00</span></p>
         </aside>
       </div>
     </section>
 
     <footer>
       <div>© <span id="year"></span> MameWeb </div>
-      <div class="muted">Diseño, desarrollo y mantenimiento web</div>
+      <div class="muted" data-i18n="footer_text">Diseño, desarrollo y mantenimiento web</div>
     </footer>
   </main>
 
@@ -281,6 +289,6 @@
       ]
     }
   </script>
-  <script src="js/javascript.js"></script>
+  <script src="js/javascript.js" defer></script>
 </body>
 </html>
