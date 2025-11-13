@@ -17,45 +17,51 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
-  form.addEventListener('submit', function(ev){
-    ev.preventDefault();
-    status.textContent = '';
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const message = document.getElementById('message').value.trim();
+  function setupFormHandler() {
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    if (!form) return;
 
-    if(!name || !email || !message) {
-      status.textContent = 'Por favor completa los campos obligatorios.';
-      return;
-    }
-    if(!validateEmail(email)){
-      status.textContent = 'El email no tiene formato válido.';
-      return;
-    }
+    form.addEventListener('submit', async function(ev) {
+      ev.preventDefault();
+      status.textContent = '';
+  
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
 
-    // Simular envío: como no hay backend, usamos mailto como fallback dinámico y guardamos una copia en localStorage
-    const subject = encodeURIComponent('Solicitud de presupuesto - ' + name);
-    let body = 'Nombre: ' + name + '\n';
-    body += 'Email: ' + email + '\n';
-    if(phone) body += 'Teléfono: ' + phone + '\n';
-    body += '\nMensaje:\n' + message;
+      if(!name || !email || !message) {
+        status.textContent = t('form_status_required');
+        return;
+      }
+      if(!validateEmail(email)) {
+        status.textContent = t('form_status_invalid_email');
+        return;
+      }
 
-    // Guardar en localStorage 
-    try {
-      const saves = JSON.parse(localStorage.getItem('mameweb_submissions') || '[]');
-      saves.push({name, email, phone, message, at: new Date().toISOString()});
-      localStorage.setItem('mameweb_submissions', JSON.stringify(saves));
-    } catch(e){
-      // ignorar
-    }
+      const data = { name, email, phone, message };
 
-    // Abrir cliente mail
-    const mailto = 'mailto:tucorreo@ejemplo.com?subject=' + subject + '&body=' + encodeURIComponent(body);
-    window.location.href = mailto;
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
 
-    status.textContent = 'Se ha abierto tu cliente de correo. Si no aparece, copia y pega el mensaje en tu email.';
-  });
+        if (response.ok) {
+          status.textContent = t('form_status_success');
+          form.reset();
+        } else {
+          status.textContent = t('form_status_error');
+        }
+      } catch (error) {
+        status.textContent = t('form_status_network');
+      }
+    });
+  }
+
+
 
   // Botón para abrir el mail por defecto con los datos rellenados
   document.getElementById('btn-mail').addEventListener('click', function(){
@@ -94,8 +100,12 @@
     // -----------------------------
 
     const langSelect = document.getElementById('langSelect');
-    const defaultLang = localStorage.getItem('lang') || navigator.language.slice(0, 2) || 'es';
+    const savedLang = localStorage.getItem('lang');
+    const browserLang = navigator.language.slice(0, 2);
+    const defaultLang = savedLang || (['es', 'en'].includes(browserLang) ? browserLang : 'es');
     let translations = {};
+
+
 
     async function loadLanguage(lang) {
       try {
@@ -105,6 +115,8 @@
         applyTranslations();
         localStorage.setItem('lang', lang);
         if (langSelect) langSelect.value = lang;
+        setupFormHandler();
+
       } catch (error) {
         console.error('Error cargando idioma:', error);
       }
@@ -122,6 +134,11 @@
         if (translations[key]) el.placeholder = translations[key];
       });
     }
+
+    function t(key) {
+      return translations[key] || key;
+    }
+
 
     if (langSelect) {
       langSelect.addEventListener('change', e => {

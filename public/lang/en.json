@@ -1,5 +1,5 @@
 {
-  "brand_title": "MameWeb — Website Creation",
+  "brand_title": "MAME — Website Creation",
   "brand_subtitle": "Web design & development for brands and entrepreneurs",
   "nav_services": "Services",
   "nav_portfolio": "Portfolio",
@@ -96,6 +96,12 @@
   "contact_aside_availability": "Availability: Monday-Sunday, 9am-6pm",
   "contact_aside_mail": "jonmarcos1@gmail.com",
   "contact_aside_whatsapplink": "+34 638 574 402",
+
+  "form_status_required": "Please complete the required fields.",
+  "form_status_invalid_email": "The email format is invalid.",
+  "form_status_success": "✅ Message sent successfully. I will get back to you soon.",
+  "form_status_error": "❌ Error sending the message. Please try again later.",
+  "form_status_network": "⚠️ Could not send. Please check your connection.",
 
   "footer_text": "Web design, development and maintenance"
 }

@@ -1,5 +1,5 @@
 {
-  "brand_title": "MameWeb — Creación de Páginas",
+  "brand_title": "MAME — Creación de Páginas",
   "brand_subtitle": "Diseño web & desarrollo para marcas y emprendedores",
   "nav_services": "Servicios",
   "nav_portfolio": "Portfolio",
@@ -97,6 +97,11 @@
   "contact_aside_mail": "jonmarcos1@gmail.com",
   "contact_aside_whatsapplink": "+34 638 574 402",
 
+  "form_status_required": "Por favor completa los campos obligatorios.",
+  "form_status_invalid_email": "El email no tiene formato válido.",
+  "form_status_success": "✅ Mensaje enviado correctamente. Te responderé pronto.",
+  "form_status_error": "❌ Error al enviar el mensaje. Intenta más tarde.",
+  "form_status_network": "⚠️ No se pudo enviar. Revisa tu conexión.",
 
   "footer_text": "Diseño, desarrollo y mantenimiento web"
 }
