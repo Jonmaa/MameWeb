@@ -95,59 +95,99 @@
     localStorage.setItem('theme', newTheme);
   });
 
-    // -----------------------------
-    // 🌐 Gestión de idiomas (i18n)
-    // -----------------------------
+  // -----------------------------
+  // 🌐 Gestión de idiomas (i18n)
+  // -----------------------------
 
-    const langSelect = document.getElementById('langSelect');
-    const savedLang = localStorage.getItem('lang');
-    const browserLang = navigator.language.slice(0, 2);
-    const defaultLang = savedLang || (['es', 'en'].includes(browserLang) ? browserLang : 'es');
-    let translations = {};
+  const langSelect = document.getElementById('langSelect');
+  const savedLang = localStorage.getItem('lang');
+  const browserLang = navigator.language.slice(0, 2);
+  const defaultLang = savedLang || (['es', 'en'].includes(browserLang) ? browserLang : 'es');
+  let translations = {};
 
+  async function loadLanguage(lang) {
+    try {
+      const response = await fetch(`lang/${lang}.json`);
+      if (!response.ok) throw new Error(`Error al cargar ${lang}.json`);
+      translations = await response.json();
+      applyTranslations();
+      localStorage.setItem('lang', lang);
+      if (langSelect) langSelect.value = lang;
+      setupFormHandler();
 
+    } catch (error) {
+      console.error('Error cargando idioma:', error);
+    }
+  }
 
-    async function loadLanguage(lang) {
-      try {
-        const response = await fetch(`lang/${lang}.json`);
-        if (!response.ok) throw new Error(`Error al cargar ${lang}.json`);
-        translations = await response.json();
-        applyTranslations();
-        localStorage.setItem('lang', lang);
-        if (langSelect) langSelect.value = lang;
-        setupFormHandler();
-
-      } catch (error) {
-        console.error('Error cargando idioma:', error);
+  function applyTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[key]) {
+        el.innerHTML = translations[key];
       }
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (translations[key]) el.placeholder = translations[key];
+    });
+  }
+
+  function t(key) {
+    return translations[key] || key;
+  }
+
+
+  if (langSelect) {
+    langSelect.addEventListener('change', e => {
+      loadLanguage(e.target.value);
+    });
+  }
+
+
+  // Carga inicial del idioma
+  loadLanguage(defaultLang);
+
+  // -----------------------------
+  // 💰 Modal de precios con i18n
+  // -----------------------------
+
+  (function() {
+    const modal = document.getElementById('priceModal');
+    if (!modal) return; // si no existe, salir
+    const modalTitle = document.getElementById('modalTitle');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalBody = document.getElementById('modalBody');
+    const closeBtn = modal.querySelector('.modal-close');
+
+    // Abre el modal con los textos traducidos
+    function openPriceModal(key) {
+      modalTitle.textContent = t(`price_${key}_title`);
+      modalPrice.textContent = t(`price_${key}_amount`);
+      modalBody.innerHTML = t(`price_${key}_fulldesc`);
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
     }
 
-    function applyTranslations() {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[key]) {
-          el.innerHTML = translations[key];
-        }
+    // Detectar clic en las tarjetas
+    document.querySelectorAll('.price').forEach(card => {
+      card.addEventListener('click', () => {
+        const type = card.dataset.plan; 
+        if (type) openPriceModal(type);
       });
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        if (translations[key]) el.placeholder = translations[key];
-      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
     }
 
-    function t(key) {
-      return translations[key] || key;
-    }
+    // Cerrar modal
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
 
-
-    if (langSelect) {
-      langSelect.addEventListener('change', e => {
-        loadLanguage(e.target.value);
-      });
-    }
-
-
-    // Carga inicial del idioma
-    loadLanguage(defaultLang);
+  })();
 
 })();

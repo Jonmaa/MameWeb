@@ -132,24 +132,24 @@
       </div>
 
       <div class="pricing-grid">
-        <div class="price">
-          <h4 data-i18n="price_1_title">Starter</h4>
-          <div class="amount" data-i18n="price_1_amount">Desde €500</div>
-          <div class="muted" data-i18n="price_1_desc">Landing page o web básica</div>
-          <p style="margin-top:12px" data-i18n="price_1_details"><strong>Incluye:</strong> Diseño simple, 1-3 páginas, formulario de contacto, CTA, optimización básica.</p>
+        <div class="price" data-plan="starter">
+          <h4 data-i18n="price_starter_title">Starter</h4>
+          <div class="amount" data-i18n="price_starter_amount">Desde €500</div>
+          <div class="muted" data-i18n="price_starter_desc">Landing page o web básica</div>
+          <p style="margin-top:12px" data-i18n="price_starter_details"><strong>Incluye:</strong> Diseño simple, 1-3 páginas, formulario de contacto, CTA, optimización básica.</p>
         </div>
-        <div class="price">
-          <h4 data-i18n="price_2_title">Pro</h4>
-          <div class="amount" data-i18n="price_2_amount">Desde €1000</div>
-          <div class="muted" data-i18n="price_2_desc">Web corporativa</div>
-          <p style="margin-top:12px" data-i18n="price_2_details"><strong>Incluye:</strong> 4-8 páginas (inicio, servicios, sobre nosotros, contacto), diseño personalizado, responsive.</p>
+        <div class="price" data-plan="pro">
+          <h4 data-i18n="price_pro_title">Pro</h4>
+          <div class="amount" data-i18n="price_pro_amount">Desde €1000</div>
+          <div class="muted" data-i18n="price_pro_desc">Web corporativa</div>
+          <p style="margin-top:12px" data-i18n="price_pro_details"><strong>Incluye:</strong> 4-8 páginas (inicio, servicios, sobre nosotros, contacto), diseño personalizado, responsive.</p>
         </div>
-        <div class="price">
-          <h4 data-i18n="price_3_title">Ecommerce</h4>
+        <div class="price" data-plan="ecommerce">
+          <h4 data-i18n="price_ecommerce_title">Ecommerce</h4>
           <!-- Menos de 50 prod. (2200 - 3600), Más de 50 prod. (3600 - 8000) -->
-          <div class="amount" data-i18n="price_3_amount">Desde €2,200</div>
-          <div class="muted" data-i18n="price_3_desc">Tienda online</div>
-          <p style="margin-top:12px" data-i18n="price_3_details"><strong>Incluye:</strong> Catálogo, pasarela de pago, carrito de compras y envíos.</p>
+          <div class="amount" data-i18n="price_ecommerce_amount">Desde €2,200</div>
+          <div class="muted" data-i18n="price_ecommerce_desc">Tienda online</div>
+          <p style="margin-top:12px" data-i18n="price_ecommerce_details"><strong>Incluye:</strong> Catálogo, pasarela de pago, carrito de compras y envíos.</p>
         </div>
       </div>
     </section>
@@ -261,6 +261,16 @@
         </aside>
       </div>
     </section>
+
+    <!-- Modal de precios -->
+    <div id="priceModal" class="modal" aria-hidden="true">
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" aria-label="Cerrar">✕</button>
+        <h3 id="modalTitle">Título del plan</h3>
+        <p id="modalPrice" class="muted">Precio del plan</p>
+        <p id="modalBody" class="muted">Aquí irá la descripción detallada del plan seleccionado.</p>
+      </div>
+    </div>
 
     <footer>
       <div>© <span id="year"></span> MAME </div>
