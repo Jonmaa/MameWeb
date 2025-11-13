@@ -104,6 +104,12 @@ header{
   box-shadow: 0 6px 16px rgba(31,182,255,0.08);
   font-size:22px;
 }
+
+.logo-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+}
 .brand h1{margin:0;font-size:18px;letter-spacing:-0.2px}
 .brand p{margin:0;font-size:13px;color:var(--muted)}
 
