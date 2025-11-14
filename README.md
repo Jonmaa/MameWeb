@@ -22,7 +22,7 @@ Está diseñado con un enfoque en **rendimiento, accesibilidad y experiencia de 
 
 | Categoría | Tecnología / API |
 |------------|------------------|
-| **Frontend** | HTML5, CSS3, JavaScript (ES6+) |
+| **Frontend** | HTML5, CSS3, JavaScript (ES6+), TypeScript |
 | **Internacionalización (i18n)** | Archivos `lang/es.json` y `lang/en.json` |
 | **Almacenamiento local** | `localStorage` (tema e idioma) |
 | **Email dinámico** | `mailto:` y **Formspree** para enviar datos JSON |
@@ -36,20 +36,32 @@ Está diseñado con un enfoque en **rendimiento, accesibilidad y experiencia de 
 ```
 public/
 │
-├── index.html # Página principal
+├── index.html                # Página principal del sitio
 │
-├── /css/
-│ └── stylesheet.css # Estilos globales y definición de temas (dark/light)
+├── css/
+│   └── stylesheet.css        # Estilos globales + modo claro/oscuro
 │
-├── /js/
-│ └── javascript.js # Lógica principal: temas, traducciones (i18n), formulario y eventos
+├── js/
+│   └── app.js                # Código JavaScript generado desde TypeScript (compilado)
 │
-├── /lang/
-│ ├── es.json # Traducciones al español
-│ └── en.json # Traducciones al inglés
+├── lang/
+│   ├── es.json               # Traducciones en español
+│   └── en.json               # Traducciones en inglés
 │
-└──/img/ # Imágenes y recursos gráficos (logos, portfolio, hero, etc.)
-README.md # Documentación del proyecto
+└── img/
+    ├── favicon.ico           # Icono del sitio
+    ├── portfolio1.png        # Imagenes del portfolio (ejemplo)
+    ├── portfolio2.png
+    ├── portfolio3.png
+    └── ...                   # Otros recursos gráficos
+
+ts/
+└── app.ts                    # Código fuente original en TypeScript
+
+tsconfig.json                 # Configuración del compilador TypeScript
+
+README.md                     # Documentación del proyecto
+
 ```   
 
 ### 📁 Descripción breve de los archivos clave
@@ -57,9 +69,10 @@ README.md # Documentación del proyecto
 | Archivo / Carpeta | Función principal |
 |--------------------|------------------|
 | **index.html** | Contiene toda la estructura HTML, con atributos `data-i18n` para la traducción dinámica. |
-| **styles.css** | Define la apariencia visual, colores de los temas, diseño adaptable y transiciones suaves. |
-| **main.js** | Controla la lógica de interacción: cambio de idioma, validación del formulario, y modo oscuro/claro. |
+| **stylesheet.css** | Define la apariencia visual, colores de los temas, diseño adaptable y transiciones suaves. |
+| **app.ts** | Código original: gestión de temas, traducciones, formulario, modal de precios, etc. |
+| **app.js** | Código compilado desde TypeScript, usado directamente por el navegador. |
 | **lang/** | Carpeta que agrupa las traducciones en formato JSON. |
 | **img/** | Contiene las imágenes del sitio, organizadas por propósito o sección. |
-| **README.md** | Documentación del proyecto (este archivo). |
+| **tsconfig.json** | Configuración del compilador TS (ES6, strict mode, rutas, etc.). |
 
