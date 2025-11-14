@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "rootDir": "./ts",
+    "outDir": "./public/js",
+    "module": "es6",
+    "target": "es2020",
+    "lib": ["es2020", "dom"],
+    "strict": true,
+    "esModuleInterop": true
+  }
+}

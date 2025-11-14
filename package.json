@@ -1,0 +1,24 @@
+{
+  "name": "mameweb",
+  "version": "1.0.0",
+  "description": "Este proyecto es un **sitio web personal y portfolio profesional** desarrollado para mostrar servicios, proyectos, precios y ofrecer un formulario de contacto dinámico con soporte multilenguaje (🇪🇸 Español / 🇬🇧 English).   Está diseñado con un enfoque en **rendimiento, accesibilidad y experiencia de usuario** moderna.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jonmaa/MameWeb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Jonmaa/MameWeb/issues"
+  },
+  "homepage": "https://github.com/Jonmaa/MameWeb#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
